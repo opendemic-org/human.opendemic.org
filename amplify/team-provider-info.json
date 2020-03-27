@@ -1,0 +1,23 @@
+{
+    "production": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-humanopendemicorg-production-214811-authRole",
+            "UnauthRoleArn": "arn:aws:iam::640420247480:role/amplify-humanopendemicorg-production-214811-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::640420247480:role/amplify-humanopendemicorg-production-214811-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-humanopendemicorg-production-214811-deployment",
+            "UnauthRoleName": "amplify-humanopendemicorg-production-214811-unauthRole",
+            "StackName": "amplify-humanopendemicorg-production-214811",
+            "StackId": "arn:aws:cloudformation:us-east-1:640420247480:stack/amplify-humanopendemicorg-production-214811/057da2c0-6fcd-11ea-a67d-0e763951b664",
+            "AmplifyAppId": "d38lpo5hzckxtt"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d38lpo5hzckxtt",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}
