@@ -1,25 +1,49 @@
 import React from "react";
 import { Button } from "@blueprintjs/core";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import ModalActions from "../store/modal";
 import UserActions from "../store/user";
-import { requestGeolocation } from "../utils/permissions";
+import { getCurrentPosition } from "../utils/geolocation";
 
 export default function Menu(props) {
   const dispatch = useDispatch();
 
-  function getCoordinates() {
-    requestGeolocation(handleCoordinates, handleFailure);
+  const coordinates = useSelector(state => state.user.coordinates);
+
+  async function captureLocation() {
+    await getCurrentPosition()
+      .then(handleCoordinates)
+      .catch(() => {
+        handleFailure(
+          "Geolocation must be enabled to view cases near you.",
+        );
+      });
   }
+
+  async function captureSymptoms() {
+    if (!coordinates) {
+      await getCurrentPosition()
+        .then(props.openForm)
+        .catch(() => {
+          handleFailure(
+            "Please enable geolocation access so we can accurately log your symptoms.",
+          );
+        });
+    } else {
+      props.openForm(coordinates);
+    }
+  }
+
   function handleCoordinates(position) {
     dispatch(UserActions.setCoordinates(position.coords));
   }
-  function handleFailure() {
+
+  function handleFailure(message) {
     dispatch(ModalActions.show(
       true,
-      "Geolocation must be enabled to view cases near you.",
+      message,
       {
         icon: "error",
         confirmText: "Ok",
@@ -32,12 +56,12 @@ export default function Menu(props) {
   return (
     <Container>
     <ButtonContainer>
-      <Button onClick={getCoordinates}>
+      <Button onClick={captureLocation}>
         Cases Near Me
       </Button>
     </ButtonContainer>
     <ButtonContainer>
-      <Button>
+      <Button onClick={captureSymptoms}>
         Log Symptoms
       </Button>
     </ButtonContainer>

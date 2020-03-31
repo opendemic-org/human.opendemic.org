@@ -3,6 +3,7 @@ import * as shims from "./shims";
 import { exists } from "../../utils";
 import * as api from "../../utils/http/api";
 import axios, { handleError } from "../../utils/http/axios";
+import { sha256 } from "../../utils/parsers";
 
 export default {
   setCoordinates: (coordinates) => {
@@ -11,8 +12,10 @@ export default {
     };
   },
 
-  storeId: (id) => {
-    return (dispatch) => {
+  storeFingerPrint: (components) => {
+    let id = JSON.stringify(components);
+    return async (dispatch) => {
+      id = await sha256(id);
       try {
         localStorage.setItem("opendemic.id", id);
         dispatch(actions.storeId(id));

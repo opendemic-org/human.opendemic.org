@@ -1,16 +1,29 @@
-import { createStore, applyMiddleware } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
 
-export const persistConfig = {
+import modal from "./modal/reducer";
+import user from "./user/reducer";
+
+const persistConfig = {
   key: "opendemic.storage",
   storage,
   whitelist: ["user"],
-}
+};
+
+const userPersistConfig = {
+  key: "user",
+  storage,
+  blacklist: ["coordinates"],
+};
+
+const rootReducer = combineReducers({
+  modal,
+  user: persistReducer(userPersistConfig, user),
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -29,14 +42,14 @@ export default function configureStore(initialState = {}) {
   );
   let persistor = persistStore(store);
 
-  if (module.hot) {
-    module.hot.accept("./rootReducer", () => {
-      const nextRootReducer = require("./rootReducer").default;
-      store.replaceReducer(
-        persistReducer(persistConfig, nextRootReducer)
-      );
-    });
-  }
+  // if (module.hot) {
+  //   module.hot.accept("./rootReducer", () => {
+  //     const nextRootReducer = require("./rootReducer").default;
+  //     store.replaceReducer(
+  //       persistReducer(persistConfig, nextRootReducer)
+  //     );
+  //   });
+  // }
 
   window.persistor = persistor;
 

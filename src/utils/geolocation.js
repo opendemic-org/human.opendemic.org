@@ -4,6 +4,12 @@ var geolocationSettings = {
   timeout           : 20000
 };
 
+export async function getCurrentPosition(options) {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  });
+}
+
 export function requestGeolocation(handleSuccess, handleFailure) {
   if (navigator) {
     navigator.permissions.query({

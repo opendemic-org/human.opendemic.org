@@ -1,7 +1,7 @@
 import * as types from "./types.js";
 
 export const initialState = {
-  coordinates: {},
+  coordinates: null,
   id: null,
   idSuccess: null,
   submitSymptomsPending: false,

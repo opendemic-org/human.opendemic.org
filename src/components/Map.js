@@ -12,8 +12,8 @@ const Mapbox = ReactMapboxGl({
 
 export default function Map(props) {
   const coordinates = useSelector(state => state.user.coordinates);
-  const longitude = coordinates.longitude ||  -0.2416815;
-  const latitude = coordinates.latitude ||  51.5285582;
+  const longitude = (coordinates && coordinates.longitude) ||  -0.2416815;
+  const latitude = (coordinates && coordinates.latitude) ||  51.5285582;
   return (
     <MapContainer>
       {/* <MapFrame src="https://app.opendemic.org/global_map?lat=40.12&lng=-70.12" /> */}
