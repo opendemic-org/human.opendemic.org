@@ -18,6 +18,7 @@ export default function Header() {
         <NavbarHeading>
           <a href="clkn/https/www.opendemic.org/" target="_self">
             <img
+              style={{height: "40px"}}
               src="//d9hhrg4mnvzow.cloudfront.net/www.opendemic.org/38066938-opendemic-logo_06x06y06x02a00002b001.png"
               alt="Opendemic Logo"
               data-src-desktop-1x="//d9hhrg4mnvzow.cloudfront.net/www.opendemic.org/38066938-opendemic-logo_06x06y06x02a00002b001.png"
@@ -31,8 +32,7 @@ export default function Header() {
           </a>
           </NavbarHeading>
         <NavbarDivider />
-        <Button className="bp3-minimal" icon="home" text="Home" />
-        <Button className="bp3-minimal" icon="document" text="Files" />
+        <Button className="bp3-minimal" icon="home" text="About" />
       </NavbarGroup>
     </Navbar> 
   );
