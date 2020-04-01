@@ -10,6 +10,22 @@ export async function getCurrentPosition(options) {
   });
 }
 
+export async function getPositionByIp() {
+  const url = `http://api.ipstack.com/check?access_key=${IP_STACK_ACCESS_KEY}`
+  const data = await axios.get(url).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    return null;
+  });
+  if (data) {
+    const {latitude, longitude} = data;
+    return {latitude, longitude};
+  } else {
+    return null;
+  }
+}
+
 export function requestGeolocation(handleSuccess, handleFailure) {
   if (navigator) {
     navigator.permissions.query({
