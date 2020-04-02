@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { IntlProvider } from "react-intl";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
@@ -7,6 +8,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Modal from "./components/Modal";
 
+import * as strings from "./lib/localized";
 import UserActions from "./store/user";
 import fingerprint from "./utils/fingerprint";
 
@@ -18,24 +20,33 @@ const Container = styled.div`
 
 function App() {
   const dispatch = useDispatch();
+  const [locale, setLocale] = useState(navigator.language.split("-")[0]);
 
-  useEffect(() => { getFingerPrint() }, []);
+  useEffect(() => {
+    getFingerPrint();
+  }, []);
   async function getFingerPrint() {
     const fp = await fingerprint();
     dispatch(UserActions.storeFingerPrint(fp));
   }
 
+  function updateLocale(nextLocale) {
+    setLocale(nextLocale);
+  }
+
   return (
     <Router>
-      <Modal />
-      <Container>
-        <Header />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Container>
+      <IntlProvider locale={locale} key={locale} messages={strings[locale]}>
+        <Modal />
+        <Container>
+          <Header updateLocale={updateLocale} />
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Container>
+      </IntlProvider>
     </Router>
   );
 }
