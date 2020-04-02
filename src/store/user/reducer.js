@@ -2,7 +2,7 @@ import * as types from "./types.js";
 
 export const initialState = {
   coordinates: null,
-  locale: navigator.language,
+  locale: navigator.language.split("-")[0],
   id: null,
   idSuccess: null,
   submitSymptomsPending: false,
