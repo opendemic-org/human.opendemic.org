@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@blueprintjs/core";
+import { useIntl } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -8,17 +9,16 @@ import UserActions from "../store/user";
 import { getCurrentPosition } from "../utils/geolocation";
 
 export default function Menu(props) {
+  const { formatMessage: fm } = useIntl();
   const dispatch = useDispatch();
 
-  const coordinates = useSelector(state => state.user.coordinates);
+  const coordinates = useSelector((state) => state.user.coordinates);
 
   async function captureLocation() {
     await getCurrentPosition()
       .then(handleCoordinates)
       .catch(() => {
-        handleFailure(
-          "Geolocation must be enabled to view cases near you.",
-        );
+        handleFailure("Geolocation must be enabled to view cases near you.");
       });
   }
 
@@ -28,7 +28,7 @@ export default function Menu(props) {
         .then(props.openForm)
         .catch(() => {
           handleFailure(
-            "Please enable geolocation access so we can accurately log your symptoms.",
+            "Please enable geolocation access so we can accurately log your symptoms."
           );
         });
     } else {
@@ -41,30 +41,30 @@ export default function Menu(props) {
   }
 
   function handleFailure(message) {
-    dispatch(ModalActions.show(
-      true,
-      message,
-      {
+    dispatch(
+      ModalActions.show(true, message, {
         icon: "error",
         confirmText: "Ok",
-        onClose: () => { dispatch(ModalActions.show(false)) },
-        onConfirm: () => { dispatch(ModalActions.show(false)) },
-      }
-    ));
+        onClose: () => {
+          dispatch(ModalActions.show(false));
+        },
+        onConfirm: () => {
+          dispatch(ModalActions.show(false));
+        },
+      })
+    );
   }
 
   return (
     <Container>
-    <ButtonContainer>
-      <Button onClick={captureLocation}>
-        Cases Near Me
-      </Button>
-    </ButtonContainer>
-    <ButtonContainer>
-      <Button onClick={captureSymptoms}>
-        Log Symptoms
-      </Button>
-    </ButtonContainer>
+      <ButtonContainer>
+        <Button onClick={captureLocation}>
+          {fm({ id: "cases.near.me.button" })}
+        </Button>
+      </ButtonContainer>
+      <ButtonContainer>
+        <Button onClick={captureSymptoms}>Log Symptoms</Button>
+      </ButtonContainer>
     </Container>
   );
 }
@@ -78,4 +78,3 @@ const Container = styled.div`
 const ButtonContainer = styled.div`
   padding: 10px 0px;
 `;
-

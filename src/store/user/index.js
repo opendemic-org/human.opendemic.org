@@ -12,6 +12,12 @@ export default {
     };
   },
 
+  setLocale: (locale) => {
+    return (dispatch) => {
+      dispatch(actions.setLocale(locale));
+    };
+  },
+
   storeFingerPrint: (components) => {
     let id = JSON.stringify(components);
     return async (dispatch) => {
@@ -19,7 +25,7 @@ export default {
       try {
         localStorage.setItem("opendemic.id", id);
         dispatch(actions.storeId(id));
-      } catch(error) {
+      } catch (error) {
         dispatch(actions.storeIdFailure());
       }
     };
@@ -39,7 +45,7 @@ export default {
       } else {
         dispatch(actions.submitSymptoms());
       }
-    }
+    };
   },
   submitSymptomsPending: () => actions.submitSymptomsPending(),
 };

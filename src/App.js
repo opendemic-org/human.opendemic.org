@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IntlProvider } from "react-intl";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
@@ -20,7 +20,7 @@ const Container = styled.div`
 
 function App() {
   const dispatch = useDispatch();
-  const [locale, setLocale] = useState(navigator.language.split("-")[0]);
+  const locale = useSelector((state) => state.user.locale);
 
   useEffect(() => {
     getFingerPrint();
@@ -30,16 +30,12 @@ function App() {
     dispatch(UserActions.storeFingerPrint(fp));
   }
 
-  function updateLocale(nextLocale) {
-    setLocale(nextLocale);
-  }
-
   return (
     <Router>
       <IntlProvider locale={locale} key={locale} messages={strings[locale]}>
         <Modal />
         <Container>
-          <Header updateLocale={updateLocale} />
+          <Header />
           <Switch>
             <Route path="/">
               <Home />

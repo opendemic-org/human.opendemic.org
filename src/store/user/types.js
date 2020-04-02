@@ -1,4 +1,5 @@
 export const SET_COORDINATES = "@@user/SET_COORDINATES";
+export const SET_LOCALE = "@@user/SET_LOCALE";
 export const STORE_ID_FAILURE = "@@user/STORE_ID_FAILURE";
 export const STORE_ID_SUCCESS = "@@user/STORE_ID_SUCCESS";
 export const SUBMIT_SYMPTOMS_FAILURE = "@@user/SUBMIT_SYMPTOMS_FAILURE";

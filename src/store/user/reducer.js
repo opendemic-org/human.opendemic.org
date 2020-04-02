@@ -2,6 +2,7 @@ import * as types from "./types.js";
 
 export const initialState = {
   coordinates: null,
+  locale: navigator.language,
   id: null,
   idSuccess: null,
   submitSymptomsPending: false,
@@ -14,7 +15,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         coordinates: action.payload,
-      }
+      };
+
+    case types.SET_LOCALE:
+      return {
+        ...state,
+        locale: action.payload,
+      };
 
     default:
       return state;
