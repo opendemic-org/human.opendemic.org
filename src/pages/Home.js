@@ -7,9 +7,13 @@ import SymptomsFormContainer from "../components/SymptomsFormContainer";
 
 export default function Home() {
   const [showSymptomsForm, setShowSymptomsForm] = useState(false);
+  const [formCoordinates, setFormCoordinates] = useState(null);
 
-  function openForm() {
-    setShowSymptomsForm(true);
+  function openForm(coords) {
+    if (coords) {
+      setFormCoordinates(coords);
+      setShowSymptomsForm(true);
+    }
   }
 
   function closeForm() {
@@ -19,11 +23,16 @@ export default function Home() {
   return (
     <Container>
       <Menu openForm={openForm} />
-      {showSymptomsForm && <SymptomsFormContainer close={closeForm} />}
+      {showSymptomsForm && (
+        <SymptomsFormContainer
+          close={closeForm}
+          coordinates={formCoordinates}
+        />
+      )}
       <Map />
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   height: 100%;
