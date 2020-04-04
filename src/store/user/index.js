@@ -1,7 +1,7 @@
 import * as actions from "./actions";
 import * as shims from "./shims";
 import { exists } from "../../utils";
-import * as api from "../../utils/http/api";
+import * as api from "../../lib/http/api";
 import axios, { handleError } from "../../utils/httpClient";
 import { sha256 } from "../../utils/parsers";
 
