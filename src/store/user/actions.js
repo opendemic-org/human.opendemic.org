@@ -10,11 +10,11 @@ export function setLocale(locale) {
   return { type: types.SET_LOCALE, payload: locale };
 }
 
-export function storeId(id) {
-  return { type: types.STORE_ID_SUCCESS, payload: id };
+export function storeFingerprint(fp) {
+  return { type: types.STORE_FINGERPRINT_SUCCESS, payload: fp };
 }
-export function storeIdFailure() {
-  return { type: types.STORE_ID_FAILURE };
+export function storeFingerprintFailure() {
+  return { type: types.STORE_FINGERPRINT_FAILURE };
 }
 
 export function submitSymptoms() {

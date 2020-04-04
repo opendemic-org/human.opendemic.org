@@ -1,9 +1,8 @@
 import axios from "axios";
 
-import { errorFactory } from "../errors";
-import { exists } from "../index";
-
-const API_HOST = process.env.REACT_APP_API_HOST || "http://localhost:8000";
+import { errorFactory } from "./errorFactory";
+import { exists } from "./index";
+import { API_HOST } from "../lib/http/api";
 
 export const ReduxAxiosError = errorFactory("ReduxAxiosError");
 
@@ -36,10 +35,10 @@ export function handleError(err, message) {
 
   try {
     throw new ReduxAxiosError(err, message);
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
-};
+}
 
 export default axios.create({
   baseURL: API_HOST,

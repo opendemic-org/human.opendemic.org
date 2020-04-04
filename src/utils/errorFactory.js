@@ -15,15 +15,15 @@ export function errorFactory(name) {
       value: Error,
       enumerable: false,
       writable: true,
-      configurable: true
-    }
+      configurable: true,
+    },
   });
 
-  if (Object.setPrototypeOf){
+  if (Object.setPrototypeOf) {
     Object.setPrototypeOf(CustomError, Error);
   } else {
     CustomError.__proto__ = Error;
   }
 
   return CustomError;
-};
+}

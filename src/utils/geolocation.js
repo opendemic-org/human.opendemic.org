@@ -1,5 +1,5 @@
 import { IP_STACK_ACCESS_KEY } from "../config";
-import axios, { handleError } from "./http/axios";
+import axios, { handleError } from "./httpClient";
 
 const geolocationSettings = {
   enableHighAccuracy: false,

@@ -2,7 +2,7 @@ import * as actions from "./actions";
 import * as shims from "./shims";
 import { exists } from "../../utils";
 import * as api from "../../utils/http/api";
-import axios, { handleError } from "../../utils/http/axios";
+import axios, { handleError } from "../../utils/httpClient";
 import { sha256 } from "../../utils/parsers";
 
 export default {
@@ -19,14 +19,14 @@ export default {
   },
 
   storeFingerPrint: (components) => {
-    let id = JSON.stringify(components);
+    let fp = JSON.stringify(components);
     return async (dispatch) => {
-      id = await sha256(id);
+      fp = await sha256(fp);
       try {
-        localStorage.setItem("opendemic.id", id);
-        dispatch(actions.storeId(id));
+        localStorage.setItem("opendemic.fp", fp);
+        dispatch(actions.storeFingerprint(fp));
       } catch (error) {
-        dispatch(actions.storeIdFailure());
+        dispatch(actions.storeFingerprintFailure());
       }
     };
   },
