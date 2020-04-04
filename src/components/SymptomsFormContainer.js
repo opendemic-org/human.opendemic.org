@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Alert, Intent } from "@blueprintjs/core";
+import {
+  Alert,
+  Button,
+  Dialog,
+} from "@blueprintjs/core";
+import { useIntl } from "react-intl";
+import { useSelector } from "react-redux";
 
 import CovidDisclaimer from "./CovidDisclaimer";
 import SymptomsForm from "./SymptomsForm";
@@ -10,6 +16,10 @@ const steps = {
 };
 
 export default function SymptomsFormContainer(props) {
+  const { formatMessage: fm } = useIntl();
+
+  const fingerprint = useSelector(state => state.user.fingerprint);
+
   const [isOpen, setIsOpen] = useState(true);
   const [step, setStep] = useState(1);
 
@@ -42,6 +52,8 @@ export default function SymptomsFormContainer(props) {
       onCancel={handleCancel}
       onClose={handleClose}
       onConfirm={handleStep}
+      title={fm({ id: "log.symptoms.button" })}
+      usePortal={false}
     >
       {step === 1 && <SymptomsForm onConfirmedCovid={handleConfirmedCovid} />}
       {step === 4 && <CovidDisclaimer />}

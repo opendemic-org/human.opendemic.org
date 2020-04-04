@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Modal from "./components/Modal";
 
-import * as strings from "./lib/localized";
+import * as localeMessages from "./lib/localized";
 import UserActions from "./store/user";
 import fingerprint from "./utils/fingerprint";
 
@@ -32,7 +32,11 @@ function App() {
 
   return (
     <Router>
-      <IntlProvider locale={locale} key={locale} messages={strings[locale]}>
+      <IntlProvider
+        locale={locale}
+        key={locale}
+        messages={localeMessages[locale]}
+      >
         <Modal />
         <Container>
           <Header />

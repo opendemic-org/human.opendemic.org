@@ -4,6 +4,7 @@ import { useIntl } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
+import { ids } from "../lib/localized/strings";
 import ModalActions from "../store/modal";
 import UserActions from "../store/user";
 import { getCurrentPosition } from "../utils/geolocation";
@@ -59,11 +60,13 @@ export default function Menu(props) {
     <Container>
       <ButtonContainer>
         <Button onClick={captureLocation}>
-          {fm({ id: "cases.near.me.button" })}
+          {fm({ id: ids.CASES_NEAR_ME_BUTTON })}
         </Button>
       </ButtonContainer>
       <ButtonContainer>
-        <Button onClick={captureSymptoms}>Log Symptoms</Button>
+        <Button onClick={captureSymptoms}>
+          {fm({ id: ids.LOG_SYMPTOMS_BUTTON })}
+        </Button>
       </ButtonContainer>
     </Container>
   );
