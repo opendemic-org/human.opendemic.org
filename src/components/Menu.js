@@ -13,8 +13,6 @@ export default function Menu(props) {
   const { formatMessage: fm } = useIntl();
   const dispatch = useDispatch();
 
-  const coordinates = useSelector((state) => state.user.coordinates);
-
   async function captureLocation() {
     await getCurrentPosition()
       .then(handleCoordinates)
@@ -24,17 +22,15 @@ export default function Menu(props) {
   }
 
   async function captureSymptoms() {
-    if (!coordinates) {
-      await getCurrentPosition()
-        .then(props.openForm)
-        .catch(() => {
-          handleFailure(
-            "Please enable geolocation access so we can accurately log your symptoms."
-          );
-        });
-    } else {
-      props.openForm(coordinates);
-    }
+    await getCurrentPosition()
+      .then((position) => {
+        props.openForm(position.coords);
+      })
+      .catch(() => {
+        handleFailure(
+          "Please enable geolocation access so we can accurately log your symptoms."
+        );
+      });
   }
 
   function handleCoordinates(position) {
