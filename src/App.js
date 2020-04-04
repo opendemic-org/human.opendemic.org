@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Loader from "./components/Loader";
 import Modal from "./components/Modal";
 
 import * as localeMessages from "./lib/localized";
@@ -39,6 +40,7 @@ function App() {
         key={locale}
         messages={localeMessages[locale]}
       >
+        <Loader />
         <Modal />
         <Container>
           <Header />
