@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Button, Card, Checkbox, Divider, H5 } from "@blueprintjs/core";
+import { Button, Card, Checkbox, H5 } from "@blueprintjs/core";
+import { useIntl } from "react-intl";
 
 import TextDivider from "./TextDivider";
+import { ids } from "../lib/localized/strings";
 
 export default function SymptomsForm(props) {
+  const { formatMessage: fm } = useIntl();
+
   const [errorMessage, setErrorMessage] = useState(null);
   const [submitButtonVisible, setSubmitButtonVisible] = useState(false);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState({
@@ -17,7 +21,7 @@ export default function SymptomsForm(props) {
     if (e === true || canSubmit()) {
       const data = {
         ...selectedCheckboxes,
-        confirmedCovid,
+        confirmedCovid: e === true ? true : false,
       };
       props.submit(data);
     } else {
@@ -59,21 +63,29 @@ export default function SymptomsForm(props) {
 
   return (
     <Card>
-      <H5>Which symptoms are you currently experiencing?</H5>
+      <H5>{fm({ id: ids.SYMPTOMS_FORM_QUESTION_WHICH })}</H5>
       {errorMessage && renderErrorMessage()}
-      <Checkbox id="fever" label="Fever" onChange={handleCheckbox}></Checkbox>
+      <Checkbox
+        id="fever"
+        label={fm({ id: ids.SYMPTOMS_FEVER })}
+        onChange={handleCheckbox}
+      />
       <Checkbox
         id="shortBreath"
-        label="Shortness of Breath"
+        label={fm({ id: ids.SYMPTOMS_SHORT_BREATH })}
         onChange={handleCheckbox}
-      ></Checkbox>
-      <Checkbox id="cough" label="Cough" onChange={handleCheckbox}></Checkbox>
+      />
+      <Checkbox
+        id="cough"
+        label={fm({ id: ids.SYMPTOMS_COUGH })}
+        onChange={handleCheckbox}
+      />
       {submitButtonVisible && renderSubmitButton()}
       <H5>
-        <TextDivider text="Or" />
+        <TextDivider text={fm({ id: ids.OR })} />
       </H5>
       <Button
-        text="I am confirmed to have COVID-19"
+        text={fm({ id: ids.SYMPTOMS_FORM_CONFIRMED_COVID })}
         onClick={handleConfirmedCovid}
       />
     </Card>

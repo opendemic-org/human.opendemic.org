@@ -8,6 +8,7 @@ import SymptomsForm from "./SymptomsForm";
 import ThankYouForm from "./ThankYouForm";
 
 import * as requests from "../lib/http/requests";
+import { ids } from "../lib/localized/strings";
 
 const steps = {
   ERROR: 0, // TODO: Handle this error case
@@ -82,7 +83,7 @@ export default function SymptomsFormContainer(props) {
       isOpen={true}
       onClose={handleClose}
       onConfirm={handleStep}
-      title={fm({ id: "log.symptoms.button" })}
+      title={fm({ id: ids.LOG_SYMPTOMS_BUTTON })}
       usePortal={false}
     >
       {step === 1 && <SymptomsForm submit={handleSubmit} />}
