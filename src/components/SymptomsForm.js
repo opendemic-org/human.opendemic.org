@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Card, Checkbox, Divider, H5 } from "@blueprintjs/core";
 
+import TextDivider from "./TextDivider";
+
 export default function SymptomsForm(props) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [submitButtonVisible, setSubmitButtonVisible] = useState(false);
@@ -67,7 +69,9 @@ export default function SymptomsForm(props) {
       ></Checkbox>
       <Checkbox id="cough" label="Cough" onChange={handleCheckbox}></Checkbox>
       {submitButtonVisible && renderSubmitButton()}
-      <Divider />
+      <H5>
+        <TextDivider text="Or" />
+      </H5>
       <Button
         text="I am confirmed to have COVID-19"
         onClick={handleConfirmedCovid}
