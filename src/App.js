@@ -20,7 +20,10 @@ const Container = styled.div`
 
 function App() {
   const dispatch = useDispatch();
-  const locale = useSelector((state) => state.user.locale);
+  let locale = useSelector((state) => state.user.locale);
+  if (!locale) {
+    locale = "en";
+  }
 
   useEffect(() => {
     getFingerPrint();
