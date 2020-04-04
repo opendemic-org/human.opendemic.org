@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { ids } from "../lib/localized/strings";
+import LoaderActions from "../store/loader";
 import MapActions from "../store/map";
 import ModalActions from "../store/modal";
 import UserActions from "../store/user";
@@ -18,16 +19,24 @@ export default function Menu(props) {
   const fingerprint = useSelector((st) => st.user.fingerprint);
 
   async function captureLocation() {
+    dispatch(LoaderActions.show(true));
     await getCurrentPosition()
       .then(loadMapData)
+      .then(() => {
+        dispatch(LoaderActions.show(false));
+      })
       .catch(() => {
         handleFailure("Geolocation must be enabled to view cases near you.");
       });
   }
 
   async function captureSymptoms() {
+    dispatch(LoaderActions.show(true));
     await getCurrentPosition()
       .then(props.openForm)
+      .then(() => {
+        dispatch(LoaderActions.show(false));
+      })
       .catch(() => {
         handleFailure(
           "Please enable geolocation access so we can accurately log your symptoms."
