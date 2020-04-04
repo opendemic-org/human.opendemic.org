@@ -1,3 +1,11 @@
+export function getMapData(data) {
+  return {
+    fingerprint: data.fingerprint,
+    lat: data.coordinates.latitude,
+    lng: data.coordinates.longitude,
+  };
+}
+
 export function postSymptoms(data) {
   return {
     fingerprint: data.fingerprint,

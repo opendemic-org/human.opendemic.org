@@ -9,9 +9,9 @@ export default function Home() {
   const [showSymptomsForm, setShowSymptomsForm] = useState(false);
   const [formCoordinates, setFormCoordinates] = useState(null);
 
-  function openForm(coords) {
-    if (coords) {
-      setFormCoordinates(coords);
+  function openForm(position) {
+    if (position.coords) {
+      setFormCoordinates(position.coords);
       setShowSymptomsForm(true);
     }
   }

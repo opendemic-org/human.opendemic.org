@@ -5,17 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { ids } from "../lib/localized/strings";
+import MapActions from "../store/map";
 import ModalActions from "../store/modal";
 import UserActions from "../store/user";
 import { getCurrentPosition } from "../utils/geolocation";
 
 export default function Menu(props) {
   const { formatMessage: fm } = useIntl();
+
   const dispatch = useDispatch();
+
+  const fingerprint = useSelector((st) => st.user.fingerprint);
 
   async function captureLocation() {
     await getCurrentPosition()
-      .then(handleCoordinates)
+      .then(loadMapData)
       .catch(() => {
         handleFailure("Geolocation must be enabled to view cases near you.");
       });
@@ -23,9 +27,7 @@ export default function Menu(props) {
 
   async function captureSymptoms() {
     await getCurrentPosition()
-      .then((position) => {
-        props.openForm(position.coords);
-      })
+      .then(props.openForm)
       .catch(() => {
         handleFailure(
           "Please enable geolocation access so we can accurately log your symptoms."
@@ -33,8 +35,14 @@ export default function Menu(props) {
       });
   }
 
-  function handleCoordinates(position) {
+  function loadMapData(position) {
     dispatch(UserActions.setCoordinates(position.coords));
+    dispatch(
+      MapActions.getDataPoints({
+        fingerprint,
+        coordinates: position.coords,
+      })
+    );
   }
 
   function handleFailure(message) {
