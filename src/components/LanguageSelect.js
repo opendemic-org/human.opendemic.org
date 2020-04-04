@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, MenuItem } from "@blueprintjs/core";
 import { Select } from "@blueprintjs/select";
 import { useIntl } from "react-intl";
-import { dispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import strings from "../lib/localized/strings";
 import UserActions from "../store/user";

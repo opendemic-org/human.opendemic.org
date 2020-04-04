@@ -1,16 +1,5 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Checkbox,
-  Classes,
-  Elevation,
-  H5,
-  Icon,
-  Label,
-  Slider,
-  Switch,
-} from "@blueprintjs/core";
+import React from "react";
+import { Button, Card, H5 } from "@blueprintjs/core";
 
 export default function CovidDisclaimerForm(props) {
   return (

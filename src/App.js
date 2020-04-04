@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IntlProvider } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -20,18 +20,17 @@ const Container = styled.div`
 
 function App() {
   const dispatch = useDispatch();
+
   let locale = useSelector((state) => state.user.locale);
   if (!locale) {
     locale = "en";
   }
 
-  useEffect(() => {
-    getFingerPrint();
-  }, []);
   async function getFingerPrint() {
     const fp = await fingerprint();
     dispatch(UserActions.storeFingerPrint(fp));
   }
+  getFingerPrint();
 
   return (
     <Router>

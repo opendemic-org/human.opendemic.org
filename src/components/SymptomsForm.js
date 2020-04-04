@@ -1,17 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Checkbox,
-  Classes,
-  Divider,
-  Elevation,
-  H5,
-  Icon,
-  Label,
-  Slider,
-  Switch,
-} from "@blueprintjs/core";
+import { Button, Card, Checkbox, Divider, H5 } from "@blueprintjs/core";
 
 export default function SymptomsForm(props) {
   const [errorMessage, setErrorMessage] = useState(null);

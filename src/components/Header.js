@@ -3,15 +3,10 @@ import { useIntl } from "react-intl";
 import {
   Alignment,
   Button,
-  Classes,
-  H5,
-  Menu,
   Navbar,
   NavbarDivider,
   NavbarGroup,
   NavbarHeading,
-  Popover,
-  Switch,
 } from "@blueprintjs/core";
 
 import LanguageSelect from "./LanguageSelect";
@@ -38,7 +33,7 @@ export default function Header() {
           icon="home"
           text={fm({ id: "navigation.home" })}
         />
-        <div class="bp3-navbar-group bp3-align-right">
+        <div className="bp3-navbar-group bp3-align-right">
           <LanguageSelect />
         </div>
       </NavbarGroup>

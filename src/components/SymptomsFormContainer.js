@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Button, Dialog } from "@blueprintjs/core";
+import { Dialog } from "@blueprintjs/core";
 import { useIntl } from "react-intl";
 import { useSelector } from "react-redux";
 
@@ -25,7 +25,6 @@ export default function SymptomsFormContainer(props) {
 
   const fingerprint = useSelector((state) => state.user.fingerprint);
 
-  const [isOpen, setIsOpen] = useState(true);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     coordinates: props.coordinates,
@@ -57,6 +56,7 @@ export default function SymptomsFormContainer(props) {
         break;
       case steps.COVID_DISCLAIMER:
         submitAll(nextFormData);
+        break;
       default:
         handleStep();
         break;
@@ -79,7 +79,7 @@ export default function SymptomsFormContainer(props) {
       className={""}
       icon={null}
       isCloseButtonShown={true}
-      isOpen={isOpen}
+      isOpen={true}
       onClose={handleClose}
       onConfirm={handleStep}
       title={fm({ id: "log.symptoms.button" })}
