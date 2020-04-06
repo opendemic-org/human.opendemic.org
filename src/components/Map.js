@@ -1,5 +1,5 @@
 import React from "react";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
@@ -12,6 +12,7 @@ const Mapbox = ReactMapboxGl({
 
 export default function Map(props) {
   const coordinates = useSelector((state) => state.user.coordinates);
+  const geoJson = useSelector((st) => st.map.dataPoints);
   const longitude = (coordinates && coordinates.longitude) || -0.2416815;
   const latitude = (coordinates && coordinates.latitude) || 51.5285582;
   return (
@@ -24,7 +25,40 @@ export default function Map(props) {
           height: "90vh",
           width: "100vw",
         }}
-      />
+      >
+        <GeoJSONLayer
+          data={geoJson}
+          circleLayout={{
+            visibility: "visible",
+          }}
+          circlePaint={{
+            "circle-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "mag"],
+              1,
+              "#F3DA83",
+              3,
+              "#FFC304",
+              5,
+              "#FF5833",
+              7,
+              "#C50238",
+            ],
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              // when zoom is 0, set each feature's circle radius to the value of its "rating" property
+              0,
+              ["get", "mag"],
+              // when zoom is 10, set each feature's circle radius to four times the value of its "rating" property
+              10,
+              ["*", 4, ["get", "mag"]],
+            ],
+          }}
+        />
+      </Mapbox>
     </MapContainer>
   );
 }

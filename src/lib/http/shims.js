@@ -6,6 +6,11 @@ export function getMapData(data) {
   };
 }
 
+export function mapData(data) {
+  const out = data.replace(/\bNaN\b/g, "null");
+  return JSON.parse(out);
+}
+
 export function postSymptoms(data) {
   return {
     fingerprint: data.fingerprint,

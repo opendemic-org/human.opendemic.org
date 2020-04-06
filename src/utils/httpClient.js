@@ -40,11 +40,20 @@ export function handleError(err, message) {
   }
 }
 
-export default axios.create({
+const defaultOptions = {
   baseURL: API_HOST,
   headers: { "X-Requested-With": "XMLHttpRequest" },
   timeout: 10000,
   withCredentials: false,
   responseType: "json",
   maxRedirects: 0,
-});
+};
+
+export function httpClient(options) {
+  return axios.create({
+    ...defaultOptions,
+    ...options,
+  });
+}
+
+export default axios.create(defaultOptions);
