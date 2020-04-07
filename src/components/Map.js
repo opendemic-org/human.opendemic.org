@@ -17,8 +17,8 @@ export default function Map(props) {
   const latitude = (coordinates && coordinates.latitude) || 51.5285582;
   return (
     <MapContainer>
-      {/* <MapFrame src="https://app.opendemic.org/global_map?lat=40.12&lng=-70.12" /> */}
-      <Mapbox
+      <MapFrame src="https://app.opendemic.org/global_map?lat=40.12&lng=-70.12" />
+      {/* <Mapbox
         style={"mapbox://styles/mapbox/streets-v9"}
         center={[longitude, latitude]}
         containerStyle={{
@@ -58,7 +58,7 @@ export default function Map(props) {
             ],
           }}
         />
-      </Mapbox>
+      </Mapbox> */}
     </MapContainer>
   );
 }
