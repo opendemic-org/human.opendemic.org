@@ -1,6 +1,7 @@
 import * as types from "./types.js";
 
 export const initialState = {
+  component: null,
   isVisible: false,
   value: null,
 };
@@ -11,6 +12,7 @@ export default function reducer(state = initialState, action) {
     case types.SET_LOADER_VISIBLE:
       return {
         ...state,
+        component: action.payload.component,
         isVisible: action.payload.isVisible,
         value: action.payload.value,
       };

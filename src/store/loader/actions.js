@@ -9,9 +9,9 @@ export function hide() {
   };
 }
 
-export function show(value) {
+export function show(value, component) {
   return {
     type: types.SET_LOADER_VISIBLE,
-    payload: { isVisible: VISIBLE, value },
+    payload: { isVisible: VISIBLE, value, component },
   };
 }

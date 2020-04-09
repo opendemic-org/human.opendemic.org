@@ -19,11 +19,11 @@ export default function Menu(props) {
   const fingerprint = useSelector((st) => st.user.fingerprint);
 
   async function captureLocation() {
-    dispatch(LoaderActions.show(true));
+    dispatch(LoaderActions.show(true, { component: "Map" }));
     await getCurrentPosition()
       .then(loadMapData)
       .then(() => {
-        dispatch(LoaderActions.show(false));
+        dispatch(LoaderActions.show(false, { hideIfReady: true }));
       })
       .catch(() => {
         handleFailure("Geolocation must be enabled to view cases near you.");
@@ -31,14 +31,14 @@ export default function Menu(props) {
   }
 
   async function captureSymptoms() {
-    dispatch(LoaderActions.show(true));
+    dispatch(LoaderActions.show(true, { component: "Map" }));
     await getCurrentPosition()
       .then((position) => {
         loadMapData(position);
         props.openForm(position);
       })
       .then(() => {
-        dispatch(LoaderActions.show(false));
+        dispatch(LoaderActions.show(false, { hideIfReady: true }));
       })
       .catch(() => {
         handleFailure(
