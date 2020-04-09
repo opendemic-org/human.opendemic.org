@@ -16,6 +16,7 @@ export const ids = {
   SYMPTOMS_FORM_THANK_YOU: "symptoms.form.thankYou",
   SYMPTOMS_FORM_THANK_YOU_HEADER: "symptoms.form.thankYou.header",
   SYMPTOMS_FORM_QUESTION_WHICH: "symptoms.form.question.which",
+  TERMS_OF_USE_LINK: "termsOfUse.link",
 };
 
 export default {
@@ -93,9 +94,13 @@ export default {
 
   [ids.SYMPTOMS_FORM_COVID_DISCLAIMER]: {
     en:
-      'I understand that by clicking "Agree" my location with be anonymously marked on the Opendemic map.',
+      'I understand that by clicking "Agree" I am accepting the Opendemic {terms}. I understand that my location with be anonymously marked on the Opendemic map.',
     fr:
       'Je bien comprende que en cliquant "Consentir" signife que ma position sera partagée anonymement sur la carte d\'Opendemic.',
+  },
+
+  [ids.TERMS_OF_USE_LINK]: {
+    en: "Terms of Use",
   },
 
   [ids.SYMPTOMS_FORM_THANK_YOU_HEADER]: {
