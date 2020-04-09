@@ -90,11 +90,11 @@ export default function Menu(props) {
 }
 
 const Container = styled.div`
-  padding: 100px 20px 20px 20px;
+  padding: 105px 10px 10px 10px;
   position: absolute;
   z-index: 2;
 `;
 
 const ButtonContainer = styled.div`
-  padding: 10px 0px;
+  padding: 5px 0px 5px 0px;
 `;
