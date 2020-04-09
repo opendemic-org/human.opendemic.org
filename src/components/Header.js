@@ -28,11 +28,11 @@ export default function Header() {
           </a>
         </NavbarHeading>
         <NavbarDivider />
-        <Button
+        {/* <Button
           className="bp3-minimal"
           icon="home"
           text={fm({ id: "navigation.home" })}
-        />
+        /> */}
         <div className="bp3-navbar-group bp3-align-right">
           <LanguageSelect />
         </div>
