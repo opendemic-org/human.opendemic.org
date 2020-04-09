@@ -12,12 +12,15 @@ const Mapbox = ReactMapboxGl({
 
 export default function Map(props) {
   const coordinates = useSelector((state) => state.user.coordinates);
+  const fingerprint = useSelector((state) => state.user.fingerprint);
   const geoJson = useSelector((st) => st.map.dataPoints);
   const longitude = (coordinates && coordinates.longitude) || -0.2416815;
   const latitude = (coordinates && coordinates.latitude) || 51.5285582;
+  const url = () =>
+    `https://app.opendemic.org/human/location?fingerprint=${fingerprint}&lat=${latitude}&lng=${latitude}`;
   return (
     <MapContainer>
-      <MapFrame src="https://app.opendemic.org/global_map?lat=40.12&lng=-70.12" />
+      <MapFrame src={url()} />
       {/* <Mapbox
         style={"mapbox://styles/mapbox/streets-v9"}
         center={[longitude, latitude]}
@@ -68,8 +71,8 @@ const MapContainer = styled.div`
   width: 100%;
 `;
 
-// const MapFrame = styled.iframe`
-//   border: none;
-//   height: 100%;
-//   width: 100%;
-// `;
+const MapFrame = styled.iframe`
+  border: none;
+  height: 100%;
+  width: 100%;
+`;

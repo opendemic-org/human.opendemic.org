@@ -33,7 +33,15 @@ export default function Menu(props) {
   async function captureSymptoms() {
     dispatch(LoaderActions.show(true));
     await getCurrentPosition()
-      .then(props.openForm)
+      .then((position) => {
+        dispatch(
+          MapActions.getDataPoints({
+            fingerprint,
+            coordinates: position.coords,
+          })
+        );
+        props.openForm(position);
+      })
       .then(() => {
         dispatch(LoaderActions.show(false));
       })
