@@ -81,6 +81,7 @@ export default function Map(props) {
 const MapContainer = styled.div`
   height: 100%;
   width: 100%;
+  background-color: #343332;
 `;
 
 const MapFrame = styled.iframe`
