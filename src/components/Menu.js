@@ -34,12 +34,7 @@ export default function Menu(props) {
     dispatch(LoaderActions.show(true));
     await getCurrentPosition()
       .then((position) => {
-        dispatch(
-          MapActions.getDataPoints({
-            fingerprint,
-            coordinates: position.coords,
-          })
-        );
+        loadMapData(position);
         props.openForm(position);
       })
       .then(() => {
@@ -54,12 +49,13 @@ export default function Menu(props) {
 
   function loadMapData(position) {
     dispatch(UserActions.setCoordinates(position.coords));
-    dispatch(
-      MapActions.getDataPoints({
-        fingerprint,
-        coordinates: position.coords,
-      })
-    );
+    // TODO: Enable when not using iframe
+    // dispatch(
+    //   MapActions.getDataPoints({
+    //     fingerprint,
+    //     coordinates: position.coords,
+    //   })
+    // );
   }
 
   function handleFailure(message) {
