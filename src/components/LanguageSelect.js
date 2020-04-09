@@ -35,9 +35,8 @@ export default function LanguageSelect(props) {
       items={Object.keys(strings.languages)}
       itemRenderer={renderOption}
       onItemSelect={handleSelect}
-      popoverProps={{ minimal: true }}
     >
-      <Button rightIcon="caret-down" text={selected} />
+      <Button minimal={true} rightIcon="caret-down" text={selected} />
     </Select>
   );
 }
