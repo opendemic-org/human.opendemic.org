@@ -1,8 +1,12 @@
 export const ids = {
   ACTIONS: "actions",
   AGREE: "agree",
-  DONE: "done",
+  CONTINUE: "continue",
   CASES_NEAR_ME_BUTTON: "cases.near.me.button",
+  DONE: "done",
+  ENABLE_GEOLOCATION_CASES_NEAR_ME: "enable.geolocation.cases",
+  ENABLE_GEOLOCATION_LOG_SYMPTOMS: "enable.geolocation.log",
+  FORM_PROMPT_SELECT_OPTION: "form.prompt.select.option",
   NAVIGATION_HOME: "navigation.home",
   LANGUAGES: "languages",
   LEGEND: "legend",
@@ -15,14 +19,15 @@ export const ids = {
   OR: "or",
   SYMPTOMS_COUGH: "symptoms.cough",
   SYMPTOMS_FEVER: "symptoms.fever",
-  SYMPTOMS_SHORT_BREATH: "symptoms.shortBreath",
-  SYMPTOMS_FORM_CONFIRMED_COVID: "symptoms.form.confirmedCovid",
-  SYMPTOMS_FORM_COVID_DISCLAIMER_HEADER: "symptoms.form.covidDisclaimer.header",
-  SYMPTOMS_FORM_COVID_DISCLAIMER: "symptoms.form.covidDisclaimer",
-  SYMPTOMS_FORM_THANK_YOU: "symptoms.form.thankYou",
-  SYMPTOMS_FORM_THANK_YOU_HEADER: "symptoms.form.thankYou.header",
+  SYMPTOMS_SHORT_BREATH: "symptoms.short.breath",
+  SYMPTOMS_FORM_CONFIRMED_COVID: "symptoms.form.covid.confirmed",
+  SYMPTOMS_FORM_COVID_DISCLAIMER_HEADER:
+    "symptoms.form.covid.disclaimer.header",
+  SYMPTOMS_FORM_COVID_DISCLAIMER: "symptoms.form.covid.disclaimer",
+  SYMPTOMS_FORM_THANK_YOU: "symptoms.form.thank.you",
+  SYMPTOMS_FORM_THANK_YOU_HEADER: "symptoms.form.thank.you.header",
   SYMPTOMS_FORM_QUESTION_WHICH: "symptoms.form.question.which",
-  TERMS_OF_USE_LINK: "termsOfUse.link",
+  TERMS_OF_USE_LINK: "terms.of.use.link",
 };
 
 export default {
@@ -31,7 +36,7 @@ export default {
     en: "Actions",
     es: "",
     fr: "Actions",
-    it: "",
+    it: "Azioni",
     pt: "",
   },
 
@@ -41,6 +46,14 @@ export default {
     fr: "Consentir",
     it: "Acconsento",
     pt: "Aceitar",
+  },
+
+  [ids.CONTINUE]: {
+    en: "Continue",
+    es: "",
+    fr: "",
+    it: "Continua",
+    pt: "",
   },
 
   [ids.DONE]: {
@@ -54,8 +67,8 @@ export default {
   [ids.LEGEND]: {
     en: "Legend",
     es: "",
-    fr: "",
-    it: "",
+    fr: "Légende",
+    it: "Legenda",
     pt: "",
   },
 
@@ -76,6 +89,14 @@ export default {
   },
 
   // Components
+  [ids.LANGUAGES]: {
+    en: "English",
+    es: "Español",
+    fr: "Français",
+    it: "Italiano",
+    pt: "Português",
+  },
+
   [ids.LEGEND_RISK_LEVEL]: {
     en: "Risk Level {number}",
     es: "Riesgo Nivel {number}",
@@ -86,17 +107,17 @@ export default {
 
   [ids.LEGEND_OFFICIAL_CASE]: {
     en: "Official COVID-19",
-    es: "Caso Confirmado",
-    fr: "Cas Confirmé",
-    it: "Caso Confermato",
-    pt: "Caso Confirmado",
+    es: "COVID-19 Caso Confirmado",
+    fr: "COVID-19 Cas Officiels",
+    it: "COVID-19 Caso Confermato",
+    pt: "COVID-19 Caso Confirmado",
   },
 
   [ids.LEGEND_SELF_CASE]: {
     en: "Self-reported COVID-19",
     es: "",
-    fr: "",
-    it: "",
+    fr: "COVID-19 auto-rapport",
+    it: "COVID-19 Caso Segnalato",
     pt: "",
   },
 
@@ -108,20 +129,29 @@ export default {
     pt: "Casos Perto de Mim",
   },
 
-  [ids.LANGUAGES]: {
-    en: "English",
-    es: "Español",
-    fr: "Français",
-    it: "Italiano",
-    pt: "Português",
-  },
-
   [ids.LOG_SYMPTOMS_BUTTON]: {
     en: "Log Symptoms",
     es: "Reportar Síntomas",
     fr: "Signaler les symptômes",
     it: "Segnala i sintomi",
     pt: "Relatar Sintomas",
+  },
+
+  [ids.ENABLE_GEOLOCATION_CASES_NEAR_ME]: {
+    en: "Geolocation must be enabled to view cases near you.",
+    es: "",
+    fr: "Activer la localisation, SVP.",
+    it: "Si prega di attivare la geolocalizzazione.",
+    pt: "",
+  },
+
+  [ids.ENABLE_GEOLOCATION_LOG_SYMPTOMS]: {
+    en:
+      "Please enable geolocation access so we can accurately log your symptoms.",
+    es: "",
+    fr: "Activer la localisation, SVP.",
+    it: "Si prega di attivare la geolocalizzazione.",
+    pt: "",
   },
 
   [ids.SYMPTOMS_COUGH]: {
@@ -154,6 +184,14 @@ export default {
     fr: "Quels symptômes avez-vous maintenant?",
     it: "Che sintomi hai?",
     pt: "Quais sintomas você tem?",
+  },
+
+  [ids.FORM_PROMPT_SELECT_OPTION]: {
+    en: "Please select an option.",
+    es: "",
+    fr: "Sélectionner une option.",
+    it: "Seleziona un'opzione.",
+    pt: "",
   },
 
   [ids.SYMPTOMS_FORM_CONFIRMED_COVID]: {
