@@ -6,6 +6,7 @@ import {
   NavbarHeading,
 } from "@blueprintjs/core";
 
+import HeaderShareButtons from "./HeaderShareButtons";
 import LanguageSelect from "./LanguageSelect";
 import textLogo from "../images/textLogo.png";
 
@@ -25,6 +26,7 @@ export default function Header() {
       </NavbarGroup>
       <NavbarGroup align={Alignment.RIGHT}>
         <LanguageSelect />
+        <HeaderShareButtons />
       </NavbarGroup>
     </Navbar>
   );
