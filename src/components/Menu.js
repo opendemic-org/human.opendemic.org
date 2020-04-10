@@ -1,9 +1,10 @@
 import React from "react";
-import { Button, Spinner } from "@blueprintjs/core";
+import { Button, Icon, Menu, MenuItem, MenuDivider } from "@blueprintjs/core";
 import { useIntl } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
+import MenuMapLegend from "./MenuMapLegend";
 import { ids } from "../lib/localized/strings";
 import LoaderActions from "../store/loader";
 import MapActions from "../store/map";
@@ -11,7 +12,7 @@ import ModalActions from "../store/modal";
 import UserActions from "../store/user";
 import { getCurrentPosition } from "../utils/geolocation";
 
-export default function Menu(props) {
+export default function MainMenu(props) {
   const { formatMessage: fm } = useIntl();
 
   const dispatch = useDispatch();
@@ -75,22 +76,29 @@ export default function Menu(props) {
 
   return (
     <Container>
-      <ButtonContainer>
-        <Button onClick={captureLocation}>
-          {fm({ id: ids.CASES_NEAR_ME_BUTTON })}
-        </Button>
-      </ButtonContainer>
-      <ButtonContainer>
-        <Button onClick={captureSymptoms}>
-          {fm({ id: ids.LOG_SYMPTOMS_BUTTON })}
-        </Button>
-      </ButtonContainer>
+      <Menu>
+        <MenuMapLegend />
+        <MenuDivider title={fm({ id: ids.ACTIONS })} />
+        <MenuItem
+          onClick={captureLocation}
+          active
+          text={fm({ id: ids.CASES_NEAR_ME_BUTTON })}
+          labelElement={<Icon icon="geolocation" />}
+        />
+        <div className={"bp3-menu-divider od-menu-divider-invisible"} />
+        <MenuItem
+          onClick={captureSymptoms}
+          active
+          text={fm({ id: ids.LOG_SYMPTOMS_BUTTON })}
+          labelElement={<Icon icon="add" />}
+        />
+      </Menu>
     </Container>
   );
 }
 
 const Container = styled.div`
-  padding: 105px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   position: absolute;
   z-index: 2;
 `;

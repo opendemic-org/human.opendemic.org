@@ -22,7 +22,7 @@ export default function Map(props) {
   const latitude = (coordinates && coordinates.latitude) || 51.5285582;
   const longitude = (coordinates && coordinates.longitude) || -0.2416815;
   const url = () =>
-    `https://app.opendemic.org/human/location?fingerprint=${fingerprint}&lat=${latitude}&lng=${longitude}`;
+    `https://app.opendemic.org/human/location?fingerprint=${fingerprint}&lat=${latitude}&lng=${longitude}&include_legend=false`;
 
   function hideLoader() {
     if (loadingComponent === "Map") {
