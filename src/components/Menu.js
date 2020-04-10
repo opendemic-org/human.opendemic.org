@@ -1,13 +1,13 @@
 import React from "react";
-import { Button, Icon, Menu, MenuItem, MenuDivider } from "@blueprintjs/core";
+import { Icon, Menu, MenuItem, MenuDivider } from "@blueprintjs/core";
 import { useIntl } from "react-intl";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import MenuMapLegend from "./MenuMapLegend";
 import { ids } from "../lib/localized/strings";
 import LoaderActions from "../store/loader";
-import MapActions from "../store/map";
+// import MapActions from "../store/map";
 import ModalActions from "../store/modal";
 import UserActions from "../store/user";
 import { getCurrentPosition } from "../utils/geolocation";
@@ -17,7 +17,7 @@ export default function MainMenu(props) {
 
   const dispatch = useDispatch();
 
-  const fingerprint = useSelector((st) => st.user.fingerprint);
+  // const fingerprint = useSelector((st) => st.user.fingerprint);
 
   async function captureLocation() {
     dispatch(LoaderActions.show(true, { component: "Map" }));
@@ -101,8 +101,4 @@ const Container = styled.div`
   padding: 10px 10px 10px 10px;
   position: absolute;
   z-index: 2;
-`;
-
-const ButtonContainer = styled.div`
-  padding: 5px 0px 5px 0px;
 `;

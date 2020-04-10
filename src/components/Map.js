@@ -1,15 +1,15 @@
 import React from "react";
-import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
+// import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
 import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components";
 
-import { MAPBOX_ACCESS_TOKEN } from "../config";
+// import { MAPBOX_ACCESS_TOKEN } from "../config";
 import LoaderActions from "../store/loader";
 
-const Mapbox = ReactMapboxGl({
-  accessToken: MAPBOX_ACCESS_TOKEN,
-});
+// const Mapbox = ReactMapboxGl({
+//   accessToken: MAPBOX_ACCESS_TOKEN,
+// });
 
 export default function Map(props) {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function Map(props) {
   const coordinates = useSelector((state) => state.user.coordinates);
   const loadingComponent = useSelector((st) => st.loader.component);
   const fingerprint = useSelector((state) => state.user.fingerprint);
-  const geoJson = useSelector((st) => st.map.dataPoints);
+  // const geoJson = useSelector((st) => st.map.dataPoints);
 
   const latitude = (coordinates && coordinates.latitude) || 51.5285582;
   const longitude = (coordinates && coordinates.longitude) || -0.2416815;

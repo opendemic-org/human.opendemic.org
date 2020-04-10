@@ -8,7 +8,11 @@ export default function CovidDisclaimerForm(props) {
   const { formatMessage: fm } = useIntl();
 
   const terms = (
-    <a href="https://www.opendemic.org/terms/" target="_blank">
+    <a
+      href="https://www.opendemic.org/terms/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {fm({ id: ids.TERMS_OF_USE_LINK })}
     </a>
   );

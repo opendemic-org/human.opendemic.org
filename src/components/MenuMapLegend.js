@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Icon, MenuDivider } from "@blueprintjs/core";
 import { useIntl } from "react-intl";
-import styled from "styled-components";
 
 import { ids } from "../lib/localized/strings";
 
@@ -40,12 +39,12 @@ export default function MenuMapLegend() {
   function renderRiskLevel(level) {
     return (
       <li>
-        <a className={"bp3-menu-item od-menu-item-no-click"}>
+        <div className={"bp3-menu-item od-menu-item-no-click"}>
           <Icon color={level["color"]} icon={"symbol-square"} />
           <div className={"bp3-text-oveflow-ellipsis bp3-fill"}>
             {level["label"]}
           </div>
-        </a>
+        </div>
       </li>
     );
   }
@@ -57,5 +56,3 @@ export default function MenuMapLegend() {
     </Fragment>
   );
 }
-
-const Container = styled.div``;
