@@ -25,7 +25,7 @@ export default function SymptomsForm(props) {
       };
       props.submit(data);
     } else {
-      setErrorMessage("Please select an option");
+      setErrorMessage(fm({ id: ids.FORM_PROMPT_SELECT_OPTION }));
     }
   }
 
@@ -58,7 +58,7 @@ export default function SymptomsForm(props) {
   }
 
   function renderSubmitButton() {
-    return <Button text="Continue" onClick={submit} />;
+    return <Button text={fm({ id: ids.CONTINUE })} onClick={submit} />;
   }
 
   return (

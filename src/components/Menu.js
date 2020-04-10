@@ -27,7 +27,7 @@ export default function MainMenu(props) {
         dispatch(LoaderActions.show(false, { hideIfReady: true }));
       })
       .catch(() => {
-        handleFailure("Geolocation must be enabled to view cases near you.");
+        handleFailure(fm({ id: ids.ENABLE_GEOLOCATION_CASES_NEAR_ME }));
       });
   }
 
@@ -42,9 +42,7 @@ export default function MainMenu(props) {
         dispatch(LoaderActions.show(false, { hideIfReady: true }));
       })
       .catch(() => {
-        handleFailure(
-          "Please enable geolocation access so we can accurately log your symptoms."
-        );
+        handleFailure(fm({ id: ids.ENABLE_GEOLOCATION_LOG_SYMPTOMS }));
       });
   }
 
