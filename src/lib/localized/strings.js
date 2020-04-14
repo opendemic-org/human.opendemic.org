@@ -34,10 +34,10 @@ export default {
   // General
   [ids.ACTIONS]: {
     en: "Actions",
-    es: "",
+    es: "Acciones",
     fr: "Actions",
     it: "Azioni",
-    pt: "",
+    pt: "Ações",
   },
 
   [ids.AGREE]: {
@@ -50,10 +50,10 @@ export default {
 
   [ids.CONTINUE]: {
     en: "Continue",
-    es: "",
-    fr: "",
+    es: "Continúa",
+    fr: "Suite",
     it: "Continua",
-    pt: "",
+    pt: "Continuar",
   },
 
   [ids.DONE]: {
@@ -66,10 +66,10 @@ export default {
 
   [ids.LEGEND]: {
     en: "Legend",
-    es: "",
+    es: "Leyenda",
     fr: "Légende",
     it: "Legenda",
-    pt: "",
+    pt: "Leyenda",
   },
 
   [ids.OK]: {
@@ -115,10 +115,10 @@ export default {
 
   [ids.LEGEND_SELF_CASE]: {
     en: "Self-reported COVID-19",
-    es: "",
+    es: "Casos reportados por el usuario",
     fr: "COVID-19 auto-rapport",
     it: "COVID-19 Caso Segnalato",
-    pt: "",
+    pt: "Casos COVID-19 auto-relatados",
   },
 
   [ids.CASES_NEAR_ME_BUTTON]: {
@@ -139,19 +139,19 @@ export default {
 
   [ids.ENABLE_GEOLOCATION_CASES_NEAR_ME]: {
     en: "Geolocation must be enabled to view cases near you.",
-    es: "",
+    es: "Por favor active el servicio de ubicación.",
     fr: "Activer la localisation, SVP.",
     it: "Si prega di attivare la geolocalizzazione.",
-    pt: "",
+    pt: "Ative o acesso à geolocalização.",
   },
 
   [ids.ENABLE_GEOLOCATION_LOG_SYMPTOMS]: {
     en:
       "Please enable geolocation access so we can accurately log your symptoms.",
-    es: "",
+    es: "Por favor active el servicio de ubicación.",
     fr: "Activer la localisation, SVP.",
     it: "Si prega di attivare la geolocalizzazione.",
-    pt: "",
+    pt: "Ative o acesso à geolocalização.",
   },
 
   [ids.SYMPTOMS_COUGH]: {
@@ -188,10 +188,10 @@ export default {
 
   [ids.FORM_PROMPT_SELECT_OPTION]: {
     en: "Please select an option.",
-    es: "",
+    es: "Favor seleccione una opción.",
     fr: "Sélectionner une option.",
     it: "Seleziona un'opzione.",
-    pt: "",
+    pt: "Por favor selecione uma opção.",
   },
 
   [ids.SYMPTOMS_FORM_CONFIRMED_COVID]: {
