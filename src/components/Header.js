@@ -14,7 +14,7 @@ export default function Header() {
     <Navbar>
       <NavbarGroup align={Alignment.LEFT} large={"true"}>
         <NavbarHeading>
-          <a href="/" target="_blank">
+          <a href="/">
             <img
               style={{ height: "40px" }}
               src={textLogo}
