@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
+import { reducer as device } from "./device";
 import loader from "./loader/reducer";
 import map from "./map/reducer";
 import modal from "./modal/reducer";
@@ -20,6 +21,7 @@ const userPersistConfig = {
 };
 
 export const rootReducer = combineReducers({
+  device,
   loader,
   map,
   modal,
