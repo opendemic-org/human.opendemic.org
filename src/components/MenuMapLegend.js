@@ -79,7 +79,7 @@ export default function MenuMapLegend() {
   return (
     <Fragment>
       <HeaderContainer onClick={toggleDropdown}>
-        <MenuDivider title={renderTitle()} />
+        <MenuDivider className="od-cursor-pointer" title={renderTitle()} />
       </HeaderContainer>
       <Collapse
         isOpen={dropdownIsOpen}

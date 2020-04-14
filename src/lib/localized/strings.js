@@ -17,6 +17,7 @@ export const ids = {
   LOG_SYMPTOMS_BUTTON: "log.symptoms.button",
   OK: "ok",
   OR: "or",
+  SHARE: "share",
   SYMPTOMS_COUGH: "symptoms.cough",
   SYMPTOMS_FEVER: "symptoms.fever",
   SYMPTOMS_SHORT_BREATH: "symptoms.short.breath",
@@ -86,6 +87,14 @@ export default {
     fr: "Ou",
     it: "O",
     pt: "Ou",
+  },
+
+  [ids.SHARE]: {
+    en: "Share",
+    es: "",
+    fr: "Partager",
+    it: "",
+    pt: "",
   },
 
   // Components

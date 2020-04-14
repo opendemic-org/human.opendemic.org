@@ -24,7 +24,7 @@ export default function Header() {
           </a>
         </NavbarHeading>
       </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
+      <NavbarGroup className={"od-navbar-right"} align={Alignment.RIGHT}>
         <LanguageSelect />
         <HeaderShareButtons />
       </NavbarGroup>

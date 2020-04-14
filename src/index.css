@@ -29,6 +29,10 @@ code {
   transform: rotate(90deg);
 }
 
+.od-cursor-pointer {
+  cursor: pointer;
+}
+
 .od-menu-divider-invisible {
   border-top: none !important;
 }
@@ -38,4 +42,7 @@ code {
 }
 .od-menu-item-no-click:hover {
   background-color: transparent;
+}
+
+.od-navbar-right {
 }
