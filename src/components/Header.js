@@ -5,12 +5,15 @@ import {
   NavbarGroup,
   NavbarHeading,
 } from "@blueprintjs/core";
+import { useSelector } from "react-redux";
 
 import HeaderShareButtons from "./HeaderShareButtons";
 import LanguageSelect from "./LanguageSelect";
 import textLogo from "../images/textLogo.png";
 
 export default function Header() {
+  const isMobile = useSelector((st) => st.device.isMobile);
+
   return (
     <Navbar>
       <NavbarGroup align={Alignment.LEFT} large={"true"}>
@@ -26,7 +29,7 @@ export default function Header() {
       </NavbarGroup>
       <NavbarGroup className={"od-navbar-right"} align={Alignment.RIGHT}>
         <LanguageSelect />
-        <HeaderShareButtons />
+        <HeaderShareButtons isHeader={true} isMobile={isMobile} />
       </NavbarGroup>
     </Navbar>
   );

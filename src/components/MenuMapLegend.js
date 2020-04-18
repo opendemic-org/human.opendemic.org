@@ -11,7 +11,7 @@ export default function MenuMapLegend() {
 
   const isMobile = useSelector((st) => st.device.isMobile);
 
-  const [dropdownIsOpen, setDropdownIsOpen] = useState(!isMobile);
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(true);
 
   const LEVELS = [
     {

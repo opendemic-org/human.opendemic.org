@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { Icon } from "@blueprintjs/core";
 import {
   EmailShareButton,
   FacebookIcon,
@@ -13,20 +14,19 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
-import { Icon } from "@blueprintjs/core";
-import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import styled, { css } from "styled-components";
 
 import ShareModal from "./ShareModal";
 
-import ModalActions from "../store/modal";
+const SHARE_URL = "https://human.opendemic.org";
+const SHARE_QUOTE =
+  "See confirmed COVID-19 cases near you on Opendemic. Please #stayhome and stay safe!";
 
-export default function HeaderShareButtons() {
-  const SHARE_URL = "https://human.opendemic.org";
-  const SHARE_QUOTE =
-    "See confirmed COVID-19 cases near you on Opendemic. Please #stayhome and stay safe!";
+export default function HeaderShareButtons(props) {
+  const iconSize = props.iconSize || 24;
 
-  const dispatch = useDispatch();
+  const linkIconSize = iconSize * 0.75;
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -38,46 +38,54 @@ export default function HeaderShareButtons() {
     setModalIsOpen(true);
   }
 
-  // function handleLinkClick() {
-  //   dispatch(
-  //     ModalActions.show(true, <div>hi</div>, {
-  //       icon: "share",
-  //     })
-  //   );
-  // }
-
   return (
     <Fragment>
       {modalIsOpen && <ShareModal close={closeModal} />}
       <ShareContainer>
         {/* facebook */}
-        <ShareButton>
-          <FacebookShareButton url={SHARE_URL} quote={SHARE_QUOTE}>
-            <FacebookIcon size={24} round />
-          </FacebookShareButton>
-        </ShareButton>
+        {!props.isMobile && (
+          <ShareButton spaceAround={!props.isHeader}>
+            <FacebookShareButton url={SHARE_URL} quote={SHARE_QUOTE}>
+              <FacebookIcon size={iconSize} round />
+            </FacebookShareButton>
+          </ShareButton>
+        )}
         {/* twitter */}
-        <ShareButton>
+        <ShareButton spaceAround={!props.isHeader}>
           <TwitterShareButton url={SHARE_URL} title={SHARE_QUOTE}>
-            <TwitterIcon size={24} round />
+            <TwitterIcon size={iconSize} round />
           </TwitterShareButton>
         </ShareButton>
         {/* whatsapp */}
-        <ShareButton>
-          <WhatsappShareButton url={SHARE_URL} quote={SHARE_QUOTE}>
-            <WhatsappIcon size={24} round />
-          </WhatsappShareButton>
-        </ShareButton>
+        {!props.isMobile && (
+          <ShareButton spaceAround={!props.isHeader}>
+            <WhatsappShareButton url={SHARE_URL} quote={SHARE_QUOTE}>
+              <WhatsappIcon size={iconSize} round />
+            </WhatsappShareButton>
+          </ShareButton>
+        )}
       </ShareContainer>
-      <ShareButton className="od-cursor-pointer">
-        <Icon icon={"link"} iconSize={18} onClick={handleLinkClick} />
-      </ShareButton>
+      {props.isHeader && (
+        <ShareButton className="od-cursor-pointer">
+          <Icon
+            icon={"link"}
+            iconSize={linkIconSize}
+            onClick={handleLinkClick}
+          />
+        </ShareButton>
+      )}
     </Fragment>
   );
 }
 
 const ShareButton = styled.span`
   margin-left: 10px;
+  ${(props) =>
+    props.spaceAround &&
+    css`
+      margin-left: 5px;
+      margin-right: 5px;
+    `}
 `;
 
 const ShareContainer = styled.span`
