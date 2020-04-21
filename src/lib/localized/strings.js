@@ -61,6 +61,22 @@ export default {
     pt: "Continuar",
   },
 
+  [ids.COPIED]: {
+    en: "Copied",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
+  [ids.COPY]: {
+    en: "Copy",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
   [ids.DONE]: {
     en: "Done",
     es: "Completar",

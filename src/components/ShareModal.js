@@ -33,7 +33,11 @@ export default function ShareModal(props) {
   }
 
   function renderCopyButton() {
-    return <Tag minimal={!copied}>{copied ? "Copied" : "Copy"}</Tag>;
+    return (
+      <Tag minimal={!copied}>
+        {copied ? fm({ id: ids.COPIED }) : fm({ id: ids.COPY })}
+      </Tag>
+    );
   }
 
   function handleCopy() {
