@@ -14,6 +14,10 @@ export default function SymptomsForm(props) {
     cough: null,
     fever: null,
     shortBreath: null,
+    anosmia: null,
+    abPain: null,
+    diarrhea: null,
+    fatigue: null,
   });
   const [confirmedCovid, setConfirmedCovid] = useState(false);
 
@@ -78,6 +82,26 @@ export default function SymptomsForm(props) {
       <Checkbox
         id="cough"
         label={fm({ id: ids.SYMPTOMS_COUGH })}
+        onChange={handleCheckbox}
+      />
+      <Checkbox
+        id="anosmia"
+        label={fm({ id: ids.SYMPTOMS_LOSS_OF_SMELL })}
+        onChange={handleCheckbox}
+      />
+      <Checkbox
+        id="abPain"
+        label={fm({ id: ids.SYMPTOMS_AB_PAIN })}
+        onChange={handleCheckbox}
+      />
+      <Checkbox
+        id="diarrhea"
+        label={fm({ id: ids.SYMPTOMS_DIARRHEA })}
+        onChange={handleCheckbox}
+      />
+      <Checkbox
+        id="fatigue"
+        label={fm({ id: ids.SYMPTOMS_FATIGUE })}
         onChange={handleCheckbox}
       />
       {submitButtonVisible && renderSubmitButton()}

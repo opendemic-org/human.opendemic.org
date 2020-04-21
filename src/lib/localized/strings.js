@@ -18,8 +18,12 @@ export const ids = {
   OK: "ok",
   OR: "or",
   SHARE: "share",
+  SYMPTOMS_AB_PAIN: "symptoms.ab.pain",
   SYMPTOMS_COUGH: "symptoms.cough",
+  SYMPTOMS_DIARRHEA: "symptoms.diarrhea",
+  SYMPTOMS_FATIGUE: "symptoms.fatigue",
   SYMPTOMS_FEVER: "symptoms.fever",
+  SYMPTOMS_LOSS_OF_SMELL: "symptoms.loss.of.smell",
   SYMPTOMS_SHORT_BREATH: "symptoms.short.breath",
   SYMPTOMS_FORM_CONFIRMED_COVID: "symptoms.form.covid.confirmed",
   SYMPTOMS_FORM_COVID_DISCLAIMER_HEADER:
@@ -163,6 +167,14 @@ export default {
     pt: "Ative o acesso à geolocalização.",
   },
 
+  [ids.SYMPTOMS_AB_PAIN]: {
+    en: "Abdominal pain",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
   [ids.SYMPTOMS_COUGH]: {
     en: "Cough",
     es: "Tos",
@@ -171,12 +183,36 @@ export default {
     pt: "Tosse",
   },
 
+  [ids.SYMPTOMS_DIARRHEA]: {
+    en: "Diarrhea",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
+  [ids.SYMPTOMS_FATIGUE]: {
+    en: "Fatigue",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
   [ids.SYMPTOMS_FEVER]: {
     en: "Fever",
     es: "Fiebre",
     fr: "Fièvre",
     it: "Febbre",
     pt: "Febre",
+  },
+
+  [ids.SYMPTOMS_LOSS_OF_SMELL]: {
+    en: "Loss of smell (anosmia)",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
   },
 
   [ids.SYMPTOMS_SHORT_BREATH]: {
