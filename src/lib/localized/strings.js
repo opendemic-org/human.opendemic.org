@@ -1,8 +1,10 @@
 export const ids = {
   ACTIONS: "actions",
   AGREE: "agree",
-  CONTINUE: "continue",
   CASES_NEAR_ME_BUTTON: "cases.near.me.button",
+  CONTINUE: "continue",
+  COPIED: "copied",
+  COPY: "copy",
   DONE: "done",
   ENABLE_GEOLOCATION_CASES_NEAR_ME: "enable.geolocation.cases",
   ENABLE_GEOLOCATION_LOG_SYMPTOMS: "enable.geolocation.log",
@@ -63,18 +65,18 @@ export default {
 
   [ids.COPIED]: {
     en: "Copied",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Copiado",
+    fr: "Copié",
+    it: "Copiato",
+    pt: "Copiado",
   },
 
   [ids.COPY]: {
     en: "Copy",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Copiar",
+    fr: "Copier",
+    it: "Copia",
+    pt: "Cópia",
   },
 
   [ids.DONE]: {
@@ -110,11 +112,11 @@ export default {
   },
 
   [ids.SHARE]: {
-    en: "Share",
-    es: "",
-    fr: "Partager",
-    it: "",
-    pt: "",
+    en: "Share {noun}",
+    es: "Comparte {noun}",
+    fr: "Partage {noun}",
+    it: "Condividi {noun}",
+    pt: "Compartilhar {noun}",
   },
 
   // Components
@@ -185,10 +187,10 @@ export default {
 
   [ids.SYMPTOMS_AB_PAIN]: {
     en: "Abdominal pain",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Dolor abdominal",
+    fr: "Douleur abdominale",
+    it: "Dolore addominale",
+    pt: "Dor abdominal",
   },
 
   [ids.SYMPTOMS_COUGH]: {
@@ -201,18 +203,19 @@ export default {
 
   [ids.SYMPTOMS_DIARRHEA]: {
     en: "Diarrhea",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    en: "Diarrhea",
+    es: "Diarrea",
+    fr: "Diarrhée",
+    it: "Diarrea",
+    pt: "Diarréia",
   },
 
   [ids.SYMPTOMS_FATIGUE]: {
     en: "Fatigue",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Cansancio",
+    fr: "Fatigue",
+    it: "Affaticamento",
+    pt: "Exaustão",
   },
 
   [ids.SYMPTOMS_FEVER]: {
@@ -225,10 +228,10 @@ export default {
 
   [ids.SYMPTOMS_LOSS_OF_SMELL]: {
     en: "Loss of smell (anosmia)",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Pérdida de olfato (anosmia)",
+    fr: "Perte d'odorat (anosmia)",
+    it: "Perdita dell'olfatto (anosmia)",
+    pt: "Perda de olfato (anosmia)",
   },
 
   [ids.SYMPTOMS_SHORT_BREATH]: {

@@ -62,7 +62,7 @@ export default function ShareModal(props) {
     >
       <ShareContainer>
         <ShareHeaderContainter>
-          <H4>{`${fm({ id: ids.SHARE })} Opendemic`}</H4>
+          <H4>{`${fm({ id: ids.SHARE }, { noun: "Opendemic" })}`}</H4>
         </ShareHeaderContainter>
         <HeaderShareButtons iconSize={44} isHeader={false} />
         <CopyBox onClick={handleCopy}>
