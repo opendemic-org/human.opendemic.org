@@ -67,11 +67,12 @@ export default function ShareModal(props) {
         <HeaderShareButtons iconSize={44} isHeader={false} />
         <CopyBox onClick={handleCopy}>
           <InputGroup
+            className={"od-input-group"}
             inputRef={copyRef}
             large={true}
             rightElement={renderCopyButton()}
             value={SHARE_URL}
-          />
+          ></InputGroup>
         </CopyBox>
       </ShareContainer>
     </Drawer>

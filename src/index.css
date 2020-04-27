@@ -46,3 +46,7 @@ code {
 
 .od-navbar-right {
 }
+
+.od-input-group input {
+  margin-right: 70px;
+}
