@@ -9,7 +9,7 @@ export const ids = {
   ENABLE_GEOLOCATION_CASES_NEAR_ME: "enable.geolocation.cases",
   ENABLE_GEOLOCATION_LOG_SYMPTOMS: "enable.geolocation.log",
   FORM_PROMPT_SELECT_OPTION: "form.prompt.select.option",
-  NAVIGATION_HOME: "navigation.home",
+  HIGH: "high",
   LANGUAGES: "languages",
   LEGEND: "legend",
   LEGEND_CONFIRMED_CASE: "legend.confirmed",
@@ -17,6 +17,9 @@ export const ids = {
   LEGEND_SELF_CASE: "legend.self",
   LEGEND_RISK_LEVEL: "legend.risk",
   LOG_SYMPTOMS_BUTTON: "log.symptoms.button",
+  LOW: "low",
+  MEDIUM: "medium",
+  NAVIGATION_HOME: "navigation.home",
   OK: "ok",
   OR: "or",
   SHARE: "share",
@@ -129,11 +132,60 @@ export default {
   },
 
   [ids.LEGEND_RISK_LEVEL]: {
-    en: "Risk Level {number}",
-    es: "Riesgo Nivel {number}",
-    fr: "Niveau de risque {number}",
-    it: "Livello di rischio {number}",
-    pt: "Risco de Nível {number}",
+    en: "Risk Level {adj}",
+    es: "Riesgo Nivel {adj}",
+    fr: "Niveau de risque {adj}",
+    it: "Livello di rischio {adj}",
+    pt: "Risco de Nível {adj}",
+  },
+
+  [ids.LEGEND_RISK_LEVEL_LOW]: {
+    en: "Risk Level Low",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
+  [ids.LEGEND_RISK_LEVEL_MEDIUM]: {
+    en: "Risk Level Medium",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
+  [ids.LEGEND_RISK_LEVEL_HIGH]: {
+    en: "Risk Level High",
+    es: "",
+    fr: "",
+    it: "",
+    pt: "",
+  },
+
+  // TODO: Update
+  [ids.LOW]: {
+    en: "Low",
+    es: "1",
+    fr: "1",
+    it: "1",
+    pt: "1",
+  },
+
+  [ids.MEDIUM]: {
+    en: "Medium",
+    es: "2",
+    fr: "2",
+    it: "2",
+    pt: "2",
+  },
+
+  [ids.HIGH]: {
+    en: "High",
+    es: "3",
+    fr: "3",
+    it: "3",
+    pt: "3",
   },
 
   [ids.LEGEND_OFFICIAL_CASE]: {

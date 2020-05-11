@@ -16,23 +16,23 @@ export default function MenuMapLegend() {
   const LEVELS = [
     {
       id: 1,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { number: 1 }),
-      color: "#fed977",
+      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.LOW }) }),
+      color: "#ffff00",
     },
     {
       id: 2,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { number: 2 }),
-      color: "#feb24c",
+      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.MEDIUM }) }),
+      color: "#ffbf00",
     },
     {
       id: 3,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { number: 3 }),
-      color: "#fd8d3d",
+      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.HIGH }) }),
+      color: "#ff6a00",
     },
     {
       id: 4,
       label: fm({ id: ids.LEGEND_SELF_CASE }),
-      color: "#fc4e2b",
+      color: "#ff0000",
     },
     {
       id: 5,
@@ -51,7 +51,7 @@ export default function MenuMapLegend() {
     return (
       <li>
         <div className={"bp3-menu-item od-menu-item-no-click"}>
-          <Icon color={level["color"]} icon={"symbol-square"} />
+          <StyledIcon color={level["color"]} icon={"symbol-square"} />
           <div className={"bp3-text-oveflow-ellipsis bp3-fill"}>
             {level["label"]}
           </div>
@@ -100,4 +100,8 @@ const HeaderContainer = styled.div`
 
 const TitleContainer = styled.span`
   margin-right: 7px;
+`;
+
+const StyledIcon = styled(Icon)`
+  background-color: black;
 `;
