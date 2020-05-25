@@ -16,17 +16,17 @@ export default function MenuMapLegend() {
   const LEVELS = [
     {
       id: 1,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.LOW }) }),
+      label: fm({ id: ids.LEGEND_RISK_LEVEL_LOW }),
       color: "#ffff00",
     },
     {
       id: 2,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.MEDIUM }) }),
+      label: fm({ id: ids.LEGEND_RISK_LEVEL_MEDIUM }),
       color: "#ffbf00",
     },
     {
       id: 3,
-      label: fm({ id: ids.LEGEND_RISK_LEVEL }, { adj: fm({ id: ids.HIGH }) }),
+      label: fm({ id: ids.LEGEND_RISK_LEVEL_HIGH }),
       color: "#ff6a00",
     },
     {
@@ -41,13 +41,13 @@ export default function MenuMapLegend() {
     },
   ];
 
-  function render() {
+  function renderRiskLevels() {
     return LEVELS.map((level, i) => {
-      return renderRiskLevel(level);
+      return renderLevel(level);
     });
   }
 
-  function renderRiskLevel(level) {
+  function renderLevel(level) {
     return (
       <li>
         <div className={"bp3-menu-item od-menu-item-no-click"}>
@@ -86,7 +86,7 @@ export default function MenuMapLegend() {
         keepChildrenMounted={true}
         transitionDuration={400}
       >
-        {render()}
+        {renderRiskLevels()}
       </Collapse>
     </Fragment>
   );

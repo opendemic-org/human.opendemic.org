@@ -9,16 +9,15 @@ export const ids = {
   ENABLE_GEOLOCATION_CASES_NEAR_ME: "enable.geolocation.cases",
   ENABLE_GEOLOCATION_LOG_SYMPTOMS: "enable.geolocation.log",
   FORM_PROMPT_SELECT_OPTION: "form.prompt.select.option",
-  HIGH: "high",
   LANGUAGES: "languages",
   LEGEND: "legend",
   LEGEND_CONFIRMED_CASE: "legend.confirmed",
   LEGEND_OFFICIAL_CASE: "legend.official",
+  LEGEND_RISK_LEVEL_LOW: "legend.risk.low",
+  LEGEND_RISK_LEVEL_MEDIUM: "legend.risk.medium",
+  LEGEND_RISK_LEVEL_HIGH: "legend.risk.high",
   LEGEND_SELF_CASE: "legend.self",
-  LEGEND_RISK_LEVEL: "legend.risk",
   LOG_SYMPTOMS_BUTTON: "log.symptoms.button",
-  LOW: "low",
-  MEDIUM: "medium",
   NAVIGATION_HOME: "navigation.home",
   OK: "ok",
   OR: "or",
@@ -131,61 +130,28 @@ export default {
     pt: "Português",
   },
 
-  [ids.LEGEND_RISK_LEVEL]: {
-    en: "Risk Level {adj}",
-    es: "Riesgo Nivel {adj}",
-    fr: "Niveau de risque {adj}",
-    it: "Livello di rischio {adj}",
-    pt: "Risco de Nível {adj}",
-  },
-
   [ids.LEGEND_RISK_LEVEL_LOW]: {
     en: "Risk Level Low",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Nivel de Riesgo Bajo",
+    fr: "Faible Risque",
+    it: "Livello Di Rischio Basso",
+    pt: "Risco de Nível 1",
   },
 
   [ids.LEGEND_RISK_LEVEL_MEDIUM]: {
     en: "Risk Level Medium",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
+    es: "Nivel de Riesgo Medio",
+    fr: "Risque Moyen",
+    it: "Livello Di Rischio Medio",
+    pt: "Risco de Nível 2",
   },
 
   [ids.LEGEND_RISK_LEVEL_HIGH]: {
     en: "Risk Level High",
-    es: "",
-    fr: "",
-    it: "",
-    pt: "",
-  },
-
-  // TODO: Update
-  [ids.LOW]: {
-    en: "Low",
-    es: "1",
-    fr: "1",
-    it: "1",
-    pt: "1",
-  },
-
-  [ids.MEDIUM]: {
-    en: "Medium",
-    es: "2",
-    fr: "2",
-    it: "2",
-    pt: "2",
-  },
-
-  [ids.HIGH]: {
-    en: "High",
-    es: "3",
-    fr: "3",
-    it: "3",
-    pt: "3",
+    es: "Nivel de Riesgo Alto",
+    fr: "Risque Élevé",
+    it: "Livello Di Rischio Alto",
+    pt: "Risco de Nível 3",
   },
 
   [ids.LEGEND_OFFICIAL_CASE]: {
