@@ -104,4 +104,5 @@ const TitleContainer = styled.span`
 
 const StyledIcon = styled(Icon)`
   background-color: black;
+  border-radius: 2px;
 `;
